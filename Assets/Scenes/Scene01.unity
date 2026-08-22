@@ -551,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d79a1ddf0851dd34cbf858a3e3099e20, type: 2}
     - target: {fileID: 6483363372891214800, guid: 6ea2d357f410e1743893c595df3c3c55, type: 3}
       propertyPath: m_Name
-      value: cueBall
+      value: Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -897,10 +897,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   playerScore: 0
-  ballPosisions: []
-  ballPrefab: []
-  cueBall: []
-  xInput: 0
 --- !u!4 &738638674
 Transform:
   m_ObjectHideFlags: 0
