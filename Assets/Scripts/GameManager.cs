@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
         SetBall(BallColor.Blue, 5);
         SetBall(BallColor.Pink, 6);
         SetBall(BallColor.Black, 7);
+
+        if (Settings.fromSave)
+            LoadGame();
     }
 
     // Update is called once per frame
@@ -67,6 +70,10 @@ public class GameManager : MonoBehaviour
 
         if (Keyboard.current.backspaceKey.wasPressedThisFrame)
             StopBall();
+
+        if (Keyboard.current.leftShiftKey.isPressed && Keyboard.current.sKey.wasPressedThisFrame)
+            SaveGame();
+
     }
 
 
@@ -124,5 +131,34 @@ public class GameManager : MonoBehaviour
     public void ShowString(string s)
     {
         notiText.text = s;
+    }
+
+    public void SaveGame()
+    {
+        StopBall();
+
+        if (cueBall != null)
+        {
+            PlayerPrefs.SetFloat("cueBallPosX", cueBall.transform.position.x);
+            PlayerPrefs.SetFloat("cueBallPosY", cueBall.transform.position.y);
+            PlayerPrefs.SetFloat("cueBallPosZ", cueBall.transform.position.z);
+
+            Debug.Log("Saved");
+        }
+
+    }
+    public void LoadGame()
+    {
+        if (cueBall != null)
+        {
+            float x = PlayerPrefs.GetFloat("cueBallPosX");
+            float y = PlayerPrefs.GetFloat("cueBallPosY");
+            float z = PlayerPrefs.GetFloat("cueBallPosZ");
+
+            cueBall.transform.position = new Vector3(x, y, z);
+
+            Debug.Log("Loaded");
+        }
+
     }
 }
