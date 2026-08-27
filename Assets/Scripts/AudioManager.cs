@@ -54,5 +54,12 @@ public class AudioManager : MonoBehaviour
     public void AdjustMasterVolume(float volume)
     {
         mixer.SetFloat("master", volume);
+        PlayerPrefs.SetFloat("master", volume);
+        PlayerPrefs.Save();
+    }
+
+    public float LoadCurrentMasterVol()
+    {
+        return PlayerPrefs.GetFloat("master", 0f);
     }
 }

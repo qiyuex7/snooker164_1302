@@ -2027,6 +2027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainManu
   adjustPanel: {fileID: 383749978}
+  volumeSlider: {fileID: 417008987}
 --- !u!1 &1274176323
 GameObject:
   m_ObjectHideFlags: 0
